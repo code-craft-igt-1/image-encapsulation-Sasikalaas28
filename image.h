@@ -17,6 +17,9 @@ class Image {
     void SetPixel(uint16_t x, uint16_t y, uint8_t value) {
         pixels[x * m_columns + y] = value;
     }
+    bool ValidateImage() {
+        return (m_columns <= 1024 && m_rows <= 1024);
+    }
     const uint16_t m_rows;
     const uint16_t m_columns;
     std::unique_ptr<uint8_t[]> pixels;  // max 1k x 1k image

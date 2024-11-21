@@ -4,13 +4,13 @@
 #include "./brightener.h"
 
 int main() {
-    auto image = std::make_unique<Image>(512, 512);
+    auto image = std::make_shared<Image>(512, 512);
     std::cout << "Brightening a 512 x 512 image\n";
 
     // move the ownership of the image to the brightener
-    ImageBrightener brightener(std::move(image));
+    ImageBrightener brightener(image);
 
-    if (brightener.ValidateImage()) {
+    if (image->ValidateImage()) {
         int attenuatedCount = brightener.BrightenWholeImage();
         std::cout << "Attenuated " << attenuatedCount << " pixels\n";
 
