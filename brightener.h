@@ -4,9 +4,9 @@
 
 class ImageBrightener {
  private:
-    std::unique_ptr<Image> m_inputImage;
+    std::shared_ptr<Image> m_inputImage;
  public:
-    explicit ImageBrightener(std::unique_ptr<Image> inputImage);
-    bool ValidateImage();
+    explicit ImageBrightener(std::shared_ptr<Image> inputImage);
     int BrightenWholeImage();
+    int AttenuatePixel(int x, int y);
 };
