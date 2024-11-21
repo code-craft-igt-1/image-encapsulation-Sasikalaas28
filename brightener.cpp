@@ -18,13 +18,11 @@ int ImageBrightener::BrightenWholeImage() {
     return attenuatedPixelCount;
 }
 
-int ImageBrightener::AttenuatePixel(int x, int y)
-{
+int ImageBrightener::AttenuatePixel(int x, int y) {
     if (m_inputImage->GetPixel(x, y) > (255 - 25)) {
         m_inputImage->SetPixel(x, y, 255);
         return 1;
-    }
-    else {
+    } else {
         int pixelIndex = x * m_inputImage->m_columns + y;
         m_inputImage->SetPixel(x, y, m_inputImage->GetPixel(x, y) + 25);
         return 0;
